@@ -1,16 +1,16 @@
 import './styles.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect} from 'react';
-import { fetchCars, addCar } from '../../Redux/carsFetch';
+// import { useEffect} from 'react';
+import { addCar } from '../../Redux/carsFetch';
 import { getCars } from '../../Redux/selectors';
 
 function Catalog () {
     const dispatch = useDispatch();
   const cars = useSelector(getCars); 
 
-  useEffect(() => {
-    dispatch(fetchCars());
-  }, []);
+//   useEffect(() => {
+//     dispatch(fetchCars());
+//   }, []);
   
 
   const handleSubmit = e => {
