@@ -1,27 +1,41 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 import './styles.css';
 
 const Header = () => {
-    return (
-        <>
-        <header>
+  return (
+    <>
+      <header>
         <nav>
-        <ul>
+          <ul>
             <li>
-            <NavLink style={{color: '#191970', textDecoration: 'none'}} to='/'>Home</NavLink>
+              <NavLink
+                style={{ color: '#191970', textDecoration: 'none' }}
+                to="/"
+              >
+                Home
+              </NavLink>
             </li>
             <li>
-            <NavLink style={{color: '#191970', textDecoration: 'none'}} to='/catalog'>Catalog</NavLink>
+              <NavLink
+                style={{ color: '#191970', textDecoration: 'none' }}
+                to="/catalog"
+              >
+                Catalog
+              </NavLink>
             </li>
             <li>
-            <NavLink style={{color: '#191970', textDecoration: 'none'}} to='/favorites'>Favorites</NavLink>
+              <NavLink
+                style={{ color: '#191970', textDecoration: 'none' }}
+                to="/favorites"
+              >
+                Favorites
+              </NavLink>
             </li>
-        </ul>
+          </ul>
         </nav>
-        </header>
-        </>
-        
-    )
-}
+      </header>
+    </>
+  );
+};
 
 export default Header;

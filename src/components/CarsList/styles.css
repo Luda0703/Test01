@@ -1,0 +1,72 @@
+
+.carts {
+    display: flex;
+    flex-basis: calc((100% - 20px) / 4);
+   
+    /* margin: 0 auto;
+    overflow: hidden; */
+    flex-wrap: wrap;
+    /* white-space: pre-wrap; */
+    /* height: 100%;
+    width: 1440px; */
+/* word-wrap: break-word; */
+    /* align-items: center;
+    justify-content: center; */
+    /* column-gap: 24px;  */
+    gap: 28px;
+    
+}
+
+.cart {
+    
+    /* display: block; */
+/* margin-top: 0;
+margin-bottom: 0;
+padding: 0; */
+/* list-style: none; */
+/* margin-left: auto;
+margin-right: auto; */
+    width: 274px;
+    height: 426px;
+    /* gap: 28px; */
+}
+.image {
+    min-width: 274px;
+    height: 268px;
+    
+}
+.image_car {
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+    margin: 0;
+    padding: 0;
+}
+.type_car {
+    font-family: Mangope;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #121417;
+    gap: 10px;
+}
+.address_car {
+    font-family: Mangope;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #121417;
+}
+.btn {
+    width: 274px;
+    height: 44px;
+    border-radius: 12px;
+    padding: 12px, 99px, 12px, 99px;
+    font-family: Mangope;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #FFFFFF;
+    background-color: #3470FF;
+}
+    

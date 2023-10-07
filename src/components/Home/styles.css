@@ -1,0 +1,11 @@
+.home_page {
+    max-width: 1500px;
+    background-image: url(../../image/36_main.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 700px;
+}

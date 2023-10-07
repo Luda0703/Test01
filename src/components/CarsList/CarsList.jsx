@@ -1,22 +1,36 @@
-import { Link, useLocation } from 'react-router-dom';
+// import { Link, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { getVisibleCars } from '../../Redux/selectors';
 // import PropTypes from 'prop-types';
 // import {Ul} from './MovieList.styled'
+import './styles.css';
 
-const CarsList = ({ cars }) => {
-   const location = useLocation();
+const CarsList = () => {
+    // const dispatch = useDispatch();
+    const cars = useSelector(getVisibleCars);
 
   return (
-    <>
-      <ul>
-        {cars && cars.map(({ id, title, name, original_title }) => (
-          <li key={id}>
-            <Link to={`/catalog/${id}`} state={{ from: location}}>
-              <h3>{title || name || original_title}</h3>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </>
+    <section>
+    <ul className='container_carts'>
+    {cars.map(({ img, make, type, year, rentalPrice, id, address, description,
+     engineSize, fuelConsumption}) => (
+      <li key={id} className='cart'>
+        <div className='image'>
+        <img className='image_car' src={img}/>
+        </div>
+        <p className='type_car'>
+          {make}{type}{year}{rentalPrice}
+        </p>
+        <p className='address_car'>
+        {address}{description}{engineSize}{fuelConsumption}
+        </p>
+        <button className='btn' type="button">
+        Learn more
+        </button>
+      </li>
+    ))}
+  </ul>
+  </section>
   );
 };
 
