@@ -1,47 +1,20 @@
 import './styles.css';
-import { useSelector, useDispatch } from 'react-redux';
+// import { useSelector, useDispatch } from 'react-redux';
 // import { useEffect} from 'react';
-import { addCar } from '../../Redux/carsFetch';
-import { getCars } from '../../Redux/selectors';
+// import { addCar } from '../../Redux/carsFetch';
+// import { getCars } from '../../Redux/selectors';
+// import { Loader } from 'components/Loader/Loader';
+// import useCars from '../hooks/useCars';
+// import CarsList from '../CarsList/CarsList'
 
 function Catalog () {
-    const dispatch = useDispatch();
-  const cars = useSelector(getCars); 
-
-//   useEffect(() => {
-//     dispatch(fetchCars());
-//   }, []);
-  
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    const form = e.target;
-    const make = form.elements.make.value;
-    const rentalPrice = form.elements.rentalPrice.value;
-    const mileage = form.elements.mileage.value;
-    const km = form.elements.km.value;
-    dispatch(addCar({ make, rentalPrice, mileage, km }));
-    form.reset();
-  };
-
-//   const addCarCheeck = ({ name, phone }) => {
-//     if (
-//       contacts.find(
-//         item =>
-//           item.name.toLowerCase() === name.toLowerCase() || item.phone === phone
-//       )
-//     ) {
-//       return Notiflix.Notify.info(`${name} or ${phone} is already in contacts`);
-//     }
-
-//     dispatch(addCar({ name, phone }));
-//   };
+    // const { cars, error, isLoading, setSearchParams } = useCars();
 
     return (
         <div className="container">
           <form  
           className="container_search" 
-          onSubmit={handleSubmit}
+        //   setSearchParams={setSearchParams}
           >
             <div className="cont_label_one">
             
@@ -49,7 +22,7 @@ function Catalog () {
                 Car brand
                 <input
                   type='text'
-                  value={cars.make}
+                //   value={cars.make}
                   name='make'
                   placeholder="Enter the text"
                   className="input_one"
@@ -61,7 +34,7 @@ function Catalog () {
                 Price/ 1 hour
                 <input 
                 type='text' 
-                value={cars.rentalPrice} 
+                // value={cars.rentalPrice} 
                 name='rentalPrice'
                 placeholder="To $" 
                 className="input_two" />
@@ -74,11 +47,11 @@ function Catalog () {
                   <input 
                   type='test' 
                   placeholder="From" 
-                  value={cars.mileage}
+                //   value={cars.mileage}
                   name='mileage'
                   className="input_three" />
                   <input 
-                  value={cars.km}
+                //   value={cars.km}
                   name='km'
                   type='test' 
                   placeholder="To" 
@@ -90,6 +63,9 @@ function Catalog () {
               Search
             </button>
             </form>
+            {/* <CarsList cars={cars}/> */}
+            {/* {isLoading && <Loader />}
+            {error && <div>{error}</div>} */}
           </div>
       );
 }
