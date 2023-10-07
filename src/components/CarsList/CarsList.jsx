@@ -16,7 +16,7 @@ const CarsList = () => {
      engineSize, fuelConsumption}) => (
       <li key={id} className='cart'>
         <div className='image'>
-        <img className='image_car' src={img}/>
+        <img className='image_car' src={img} alt='car'/>
         </div>
         <p className='type_car'>
           {make}{type}{year}{rentalPrice}
