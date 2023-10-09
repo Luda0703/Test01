@@ -1,16 +1,14 @@
-// import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getVisibleCars } from '../../Redux/selectors';
 import { useState } from 'react';
 import Modal from '../Modal/Modal'
-// import PropTypes from 'prop-types';
-// import {Ul} from './MovieList.styled'
 import './styles.css';
 
 const CarsList = () => {
     const [showModal, setShowModal] = useState(false);
     // const dispatch = useDispatch();
     const cars = useSelector(getVisibleCars);
+    const [visible, setVisible] = useState(8);
 
     const toggleModal = () => {
         setShowModal(true);
@@ -20,41 +18,46 @@ const CarsList = () => {
         setShowModal(false);
       };
 
+    const showMoreItems = () => {
+        setVisible(prevValue => prevValue + 8);
+
+    }
+
   return (
-    <section>
-    <ul className='container_carts'>
-    {cars.map(({ img, make, type, year, rentalPrice, id, address, description,
-     engineSize, fuelConsumption}) => (
-      <li key={id} className='cart'>
+    <div>
+    <ul className='container_cards'>
+    {cars.slice(0, visible).map(({ img, make, type, year, rentalPrice, id, address, rentalCompany}) => (
+      <li key={id} className='card'>
         <div className='image'>
         <img className='image_car' src={img} alt='car'/>
         </div>
         <p className='type_car'>
-          {make}{type}{year}{rentalPrice}
+          {make}    {type}     {year}              {rentalPrice}
         </p>
         <p className='address_car'>
-        {address}{description}{engineSize}{fuelConsumption}
+        {address}   {type}    {make}    {id}     {rentalCompany}
         </p>
-        <button className='btn' type="button" onClick={() => toggleModal()}>
+        <button 
+        className='btn' 
+        type="button" 
+        onClick={toggleModal}
+        >
         Learn more
         </button>
       </li>
     ))}
+    <button className='btn_load_more' type='button' onClick={showMoreItems}>Load more</button>
   </ul>
   {showModal && (
         <Modal onClose={closeModal}/>
       )}
-  </section>
+  
+  </div>
+  
+ 
+//   </section>
   );
 };
 
-// MovieList.propTypes = {
-//     movies: PropTypes.arrayOf(
-//       PropTypes.shape({
-//         id: PropTypes.number.isRequired,
-//         original_title: PropTypes.string,
-//       })
-//     ).isRequired,
-//   };
 
 export default CarsList;

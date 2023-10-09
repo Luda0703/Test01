@@ -24,7 +24,7 @@ export default function Modal({ onClose }) {
 
   return createPortal(
     <div onClick={handleBackdropClose}>
-      <div>
+      <div style={{width: '300px', height: '300px', background: '#FFF'}}>
         
       </div>
     </div>,

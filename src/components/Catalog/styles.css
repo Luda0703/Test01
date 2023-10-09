@@ -4,7 +4,7 @@
     padding-bottom: 150px;
     padding-left: 115px;
     padding-right: 115px;
-    max-width: 1440px;
+    /* max-width: 1440px; */
     margin-left: auto;
     margin-right: auto;
 }
@@ -46,8 +46,7 @@
     width: 224px;
     height: 48px;
     border-radius: 14px;
-    /* padding-left: 14px; */
-    /* padding: 14px, 89px, 14px, 18px; */
+    padding: 10px;
     background-color: #F7F7FB;
     margin-top: 8px;
     border: transparent;
@@ -61,7 +60,7 @@
     width: 125px;
     height: 48px;
     border-radius: 14px;
-    
+    padding: 10px;
     background-color: #F7F7FB;
     border: transparent;
     margin-top: 8px;
@@ -74,9 +73,13 @@
 .input_three {
     width: 160px;
     height: 48px;
-    border-radius: 14px;
+    border-radius:14px ;
+    padding: 10px;
+    border-right: 1px solid #8A8A89;
+    border-top: transparent;
+    border-left: transparent;
+    border-bottom: transparent;
     background-color: #F7F7FB;
-    border: transparent;
     margin-top: 8px;
     font-family: Manrope;
     font-weight: 500;
@@ -88,12 +91,13 @@
     width: 160px;
     height: 48px;
     left: 160px;
+    padding: 10px;
     border-radius: 14px;
     background-color: #F7F7FB;
     border: transparent;
     margin-top: 8px;
 }
-.btn {
+.butn {
     width: 136px;
     height: 48px;
     border-radius: 12px;
@@ -106,7 +110,8 @@
     font-size: 14px;
     font-family: 20px;
     color: #FFFFFF;
+  
 }
-.btn:hover {
+.butn:hover {
     background-color: #0B44CD;
 }
