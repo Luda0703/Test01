@@ -8,6 +8,6 @@ export const getVisibleCars = ({ cars: { items }, filter }) => {
     return items;
   }
   return items.filter(cars =>
-    cars.name.toLowerCase().includes(filter.toLowerCase())
-  );
+    cars.make.toLowerCase().includes(filter.toLowerCase() || cars.rentalPrice.toLowerCase().includes(filter.toLowerCase())
+  ));
 };
