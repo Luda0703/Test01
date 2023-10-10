@@ -8,6 +8,9 @@ const CatalogPage = lazy(() => import('./Catalog/Catalog'));
 const FavoritesPage = lazy(() => import('./Favorites/Favorites'));
 
 export const App = () => {
+
+
+
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

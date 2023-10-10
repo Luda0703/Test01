@@ -6,8 +6,8 @@ const Header = () => {
     <>
       <header>
         <nav>
-          <ul className='naw_ul'>
-            <li className='naw_header'>
+          <ul className="naw_ul">
+            <li className="naw_header">
               <NavLink
                 style={{ color: '#191970', textDecoration: 'none' }}
                 to="/"
@@ -15,7 +15,7 @@ const Header = () => {
                 Home
               </NavLink>
             </li>
-            <li className='naw_header'>
+            <li className="naw_header">
               <NavLink
                 style={{ color: '#191970', textDecoration: 'none' }}
                 to="/catalog"
@@ -23,7 +23,7 @@ const Header = () => {
                 Catalog
               </NavLink>
             </li>
-            <li className='naw_header'>
+            <li className="naw_header">
               <NavLink
                 style={{ color: '#191970', textDecoration: 'none' }}
                 to="/favorites"

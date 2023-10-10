@@ -1,117 +1,115 @@
-
 .container {
-    padding-top: 50px;
-    padding-bottom: 150px;
-    padding-left: 115px;
-    padding-right: 115px;
-    /* max-width: 1440px; */
-    margin-left: auto;
-    margin-right: auto;
+  padding-top: 50px;
+  padding-bottom: 150px;
+  padding-left: 115px;
+  padding-right: 115px;
+  width: 100%;
+  min-width: 1440px;
 }
 .container_search {
-    display: flex;
-    width: 860px;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 50px;
+  display: flex;
+  width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
 }
 .cont_label_one {
-    display: block;
-    width: 224px;
-    margin-right: 18px;
-   
+  display: block;
+  width: 224px;
+  margin-right: 18px;
 }
 .cont_label_two {
-    display: block;
-    width: 125px;
-    margin-right: 18px;
+  display: block;
+  width: 125px;
+  margin-right: 18px;
 }
 .cont_label_three {
-    display: block;
-    margin-right: 18px;
+  display: block;
+  margin-right: 18px;
 }
 .cont_input {
-    display: flex;
+  display: flex;
 }
 .lb_input {
-    font-family: Monrope;
-    font-weight: 500;
-    font-size: 14px;
-    font-family: 18px;
-    color: #8A8A89;
+  font-family: Monrope;
+  font-weight: 500;
+  font-size: 14px;
+  font-family: 18px;
+  color: #8a8a89;
 }
 .input_one {
-    width: 224px;
-    height: 48px;
-    border-radius: 14px;
-    padding: 10px;
-    background-color: #F7F7FB;
-    margin-top: 8px;
-    border: transparent;
-    font-family: Manrope;
-    width: 500;
-    font-size: 18px;
-    line-height: 20px;
-    color: #121417;
+  width: 224px;
+  height: 48px;
+  border-radius: 14px;
+  padding: 10px;
+  background-color: #f7f7fb;
+  margin-top: 8px;
+  border: transparent;
+  font-family: Manrope;
+  width: 500;
+  font-size: 18px;
+  line-height: 20px;
+  color: #121417;
 }
 .input_two {
-    width: 125px;
-    height: 48px;
-    border-radius: 14px;
-    padding: 10px;
-    background-color: #F7F7FB;
-    border: transparent;
-    margin-top: 8px;
-    font-family: Manrope;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 20px;
-    color: #121417;
+  width: 125px;
+  height: 48px;
+  border-radius: 14px;
+  padding: 10px;
+  background-color: #f7f7fb;
+  border: transparent;
+  margin-top: 8px;
+  font-family: Manrope;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  color: #121417;
 }
 .input_three {
-    width: 160px;
-    height: 48px;
-    border-radius:14px ;
-    padding: 10px;
-    border-right: 1px solid #8A8A89;
-    border-top: transparent;
-    border-left: transparent;
-    border-bottom: transparent;
-    background-color: #F7F7FB;
-    margin-top: 8px;
-    font-family: Manrope;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 20px;
-    color: #121417;
+  width: 160px;
+  height: 48px;
+  border-top-left-radius: 14px;
+  border-bottom-left-radius: 14px;
+  padding: 10px;
+  border-right: 1px solid #8a8a89;
+  border-top: transparent;
+  border-left: transparent;
+  border-bottom: transparent;
+  background-color: #f7f7fb;
+  margin-top: 8px;
+  font-family: Manrope;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  color: #121417;
 }
 .imput-four {
-    width: 160px;
-    height: 48px;
-    left: 160px;
-    padding: 10px;
-    border-radius: 14px;
-    background-color: #F7F7FB;
-    border: transparent;
-    margin-top: 8px;
+  width: 160px;
+  height: 48px;
+  left: 160px;
+  padding: 10px;
+  border-top-right-radius: 14px;
+  border-bottom-right-radius: 14px;
+  background-color: #f7f7fb;
+  border: transparent;
+  margin-top: 8px;
 }
 .butn {
-    width: 136px;
-    height: 48px;
-    border-radius: 12px;
-    padding: 14px, 44px, 14px, 44px;
-    background-color: #3470FF;
-    border: #3470FF;
-    margin-top: 23px;
-    font-family: Manrope;
-    font-weight: 600;
-    font-size: 14px;
-    font-family: 20px;
-    color: #FFFFFF;
-  
+  width: 136px;
+  height: 48px;
+  border-radius: 12px;
+  padding: 14px, 44px, 14px, 44px;
+  background-color: #3470ff;
+  border: #3470ff;
+  margin-top: 23px;
+  font-family: Manrope;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: 20px;
+  color: #ffffff;
 }
 .butn:hover {
-    background-color: #0B44CD;
+  background-color: #0b44cd;
 }

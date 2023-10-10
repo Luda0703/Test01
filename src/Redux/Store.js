@@ -1,10 +1,12 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { carsReducer } from './carsSlice';
-import { filtersReducer } from './filtersSlice';
+import {favoriteSlice} from './favoriveSlise'
+
+const rootReducer = combineReducers({
+  cars: carsReducer,
+  favorite: favoriteSlice.reducer,
+});
 
 export const store = configureStore({
-  reducer: {
-    cars: carsReducer,
-    filter: filtersReducer,
-  },
+  reducer: rootReducer
 });
