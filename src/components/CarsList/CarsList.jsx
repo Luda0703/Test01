@@ -1,34 +1,28 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { getVisibleCars } from '../../Redux/selectors';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { fetchCar } from '../../Redux/carsFetch';
-// import { useEffect } from 'react';
-// import { HiOutlineHeart } from "react-icons/hi";
-// import {
-//     plusFavoriteList,
-//     minusFavoriteList,
-//   } from "../../Redux/favoriveSlise";
+import { HiOutlineHeart } from 'react-icons/hi';
+import { getFavorite } from '../../Redux/selectors';
+import { plusFavoriteList, minusFavoriteList } from '../../Redux/favoriveSlise';
 import Modal from '../Modal/Modal';
 import './styles.css';
 
-const CarsList = () => {
+const CarsList = ({ cars }) => {
   const [showModal, setShowModal] = useState(false);
-  // const favorite = useSelector((state) => state.favorite);
-
-  const cars = useSelector(getVisibleCars);
-
+  const favorite = useSelector(getFavorite);
   const dispatch = useDispatch();
 
-  const [visible, setVisible] = useState(8);
-  // const idCar = cars.map((item) => item.id)
-  // const favoriteStatus = favorite.includes(idCar);
+  //   const car = useSelector(getSingleCar);
+  const favoriteStatus = favorite.includes(cars.id);
 
-  // const incrementFavorite = () => {
-  //     dispatch(plusFavoriteList(idCar));
-  //   };
-  //   const decrementFavorite = () => {
-  //     dispatch(minusFavoriteList(idCar));
-  //   };
+  const [visible, setVisible] = useState(8);
+
+  const incrementFavorite = () => {
+    dispatch(plusFavoriteList(cars.id));
+  };
+  const decrementFavorite = () => {
+    dispatch(minusFavoriteList(cars.id));
+  };
 
   const toggleModal = () => {
     setShowModal(true);
@@ -42,8 +36,10 @@ const CarsList = () => {
     setVisible(prevValue => prevValue + 8);
   };
 
+  const showLike = !favoriteStatus ? incrementFavorite : decrementFavorite;
+
   return (
-    <div className="div_container">
+    <div className="container_list_map">
       <ul className="container_cards">
         {cars
           .slice(0, visible)
@@ -64,19 +60,23 @@ const CarsList = () => {
               <li key={id} className="card">
                 <div className="image">
                   <img className="image_car" src={img} alt="car" />
-                  {/* <button
-          onClick={!favoriteStatus ? incrementFavorite : decrementFavorite}
-          className='buttonHeart'
-        >
-          {!favoriteStatus ? (
-            <HiOutlineHeart className='icon' />
-          ) : (
-            <HiOutlineHeart
-              className='icon'
-              style={{ fill: "blue", color: "blue" }}
-            />
-          )}
-        </button> */}
+                  <button
+                    onClick={() => {
+                      dispatch(fetchCar(id));
+                      showLike();
+                    }}
+                    //   onClick={!favoriteStatus ? incrementFavorite : decrementFavorite}
+                    className="buttonHeart"
+                  >
+                    {!favoriteStatus ? (
+                      <HiOutlineHeart className="icon" />
+                    ) : (
+                      <HiOutlineHeart
+                        className="icon"
+                        style={{ fill: 'blue', color: 'blue' }}
+                      />
+                    )}
+                  </button>
                 </div>
                 <div className="wrapper">
                   <p className="type_car">
@@ -101,8 +101,6 @@ const CarsList = () => {
                     toggleModal();
                     dispatch(fetchCar(id));
                   }}
-                  // onClick={toggleModal}
-                  // onClick={() => dispatch(fetchCar(id))}
                 >
                   Learn more
                 </button>
@@ -111,12 +109,11 @@ const CarsList = () => {
           )}
       </ul>
 
+      <button className="btn_load_more" type="button" onClick={showMoreItems}>
+        Load more
+      </button>
+
       {showModal && <Modal onClose={closeModal} />}
-      <div>
-        <button className="btn_load_more" type="button" onClick={showMoreItems}>
-          Load more
-        </button>
-      </div>
     </div>
   );
 };

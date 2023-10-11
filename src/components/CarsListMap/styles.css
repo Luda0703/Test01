@@ -1,0 +1,23 @@
+/* .container_list_map {
+    padding: 30px;
+    grid-row-gap: 50px;
+    display: grid;
+    padding: 0;
+  }
+    @media (min-width: 768px) {
+      .container_list_map {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-column-gap: 29px;
+      grid-row-gap: 50px;
+    }
+    }
+  
+    @media (min-width: 1440px) {
+      .container_list_map {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-column-gap: 29px;
+      grid-row-gap: 50px;
+    }
+    } */

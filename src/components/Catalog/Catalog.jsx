@@ -1,28 +1,32 @@
 import './styles.css';
 import CarsList from '../CarsList/CarsList';
+import { useDispatch, useSelector } from 'react-redux';
+// import { useEffect } from 'react';
 import { fetchCars } from '../../Redux/carsFetch';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getIsLoading, getError } from '../../Redux/selectors';
+import {
+  getIsLoading,
+  getError,
+  getFilter,
+  getCars,
+} from '../../Redux/selectors';
 // import { Loader } from 'components/Loader/Loader';
 import { setStatusFilter } from '../../Redux/filtersSlice';
-import { getVisibleCars } from '../../Redux/selectors';
 
 function Catalog() {
-  const cars = useSelector(getVisibleCars);
+  const dispatch = useDispatch();
   const isLoading = useSelector(getIsLoading);
   const error = useSelector(getError);
-  const dispatch = useDispatch();
+  const filter = useSelector(getFilter);
+  const cars = useSelector(getCars);
 
   useEffect(() => {
     dispatch(fetchCars());
   }, [dispatch]);
 
-  const handleSubmite = e => e.preventDefault();
-
   return (
     <div className="container">
-      <form className="container_search" onSubmit={handleSubmite}>
+      <form className="container_search">
         <div className="cont_label_one">
           <label htmlFor="make" className="lb_input">
             Car brand{' '}
@@ -31,6 +35,7 @@ function Catalog() {
             id="make"
             name="make"
             className="input_one"
+            value={filter}
             onChange={e => dispatch(setStatusFilter(e.currentTarget.value))}
           >
             {cars.map(({ make, id }) => (
@@ -67,15 +72,11 @@ function Catalog() {
             </div>
           </label>
         </div>
-        <button
-          type="submite"
-          className="butn"
-          //   onClick={dispatch(setStatusFilter)}
-        >
+        <button type="submite" className="butn">
           Search
         </button>
       </form>
-      <CarsList />
+      <CarsList cars={cars} />
       {isLoading && <div>Loading...</div>}
       {error && <div>{error}</div>}
     </div>

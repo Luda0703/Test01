@@ -3,7 +3,7 @@ import { fetchCars, fetchCar } from './carsFetch';
 
 const cars = {
   items: [],
-  singleCar: {},
+  singleCar: [],
   isLoading: false,
   error: null,
 };

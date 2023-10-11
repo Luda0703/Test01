@@ -84,8 +84,8 @@ export default function Modal({ onClose }) {
                   </li>
                   {/* <li className='item'>
                   {car.rentalConditions.split('\n')[1]}
-                </li>
-                <li className='item'>
+                </li> */}
+                  {/* <li className='item'>
                   {car.rentalConditions.split('\n')[2]}
                 </li> */}
                   <li className="item">
