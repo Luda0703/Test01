@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkTest01=self.webpackChunkTest01||[]).push([[116],{116:function(e,s,t){t.r(s),t.d(s,{default:function(){return a}});var n=t(184);var a=function(){return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)("div",{className:"cont_favorite"}),(0,n.jsx)("div",{className:"favorite_cont"})]})}}}]);
-//# sourceMappingURL=116.df18c3dc.chunk.js.map
