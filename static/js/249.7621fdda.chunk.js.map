@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/249.7621fdda.chunk.js","mappings":"2GAMA,UAJA,WAEC,C","sources":["components/Favorites/Favorites.jsx"],"sourcesContent":["\n\nfunction Favorites() {\n   \n}\n\nexport default Favorites;\n"],"names":[],"sourceRoot":""}
