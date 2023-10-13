@@ -1,10 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { carsReducer } from './carsSlice';
-import {favoriteSlice} from './favoriveSlise'
+import {reducer as favoriteReducer} from './favoriveSlise'
 
 const rootReducer = combineReducers({
   cars: carsReducer,
-  favorite: favoriteSlice.reducer,
+  favorite: favoriteReducer,
 });
 
 export const store = configureStore({

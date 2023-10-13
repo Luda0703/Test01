@@ -1,21 +1,14 @@
-.NavLink {
-  color: #191970;
-  text-decoration: none;
-}
-.NavLink:active {
-  color: #0000ff;
-}
 header {
-  top: 0;
-  left: 0;
-  width: 1440px;
+  /* top: 0;
+  left: 0; */
+  /* width: 1440px; */
     margin: 0 auto;
   /* min-width: 1440px;
   width: 100%; */
-  padding-right: 115px;
-  padding-left: 115px;
-  position: sticky;
-  z-index: 1100;
+  /* padding-right: 115px;
+  padding-left: 115px; */
+  /* position: sticky;
+  z-index: 1100; */
   display: flex;
   justify-content: center;
   min-height: 40px;

@@ -2,27 +2,33 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { fetchCar } from '../../Redux/carsFetch';
 import { HiOutlineHeart } from 'react-icons/hi';
-import { getFavorite } from '../../Redux/selectors';
-import { plusFavoriteList, minusFavoriteList } from '../../Redux/favoriveSlise';
+// import { getFavorite } from '../../Redux/selectors';
+import { actions } from "Redux/favoriveSlise";
+// import { plusFavoriteList, minusFavoriteList } from '../../Redux/favoriveSlise';
 import Modal from '../Modal/Modal';
 import './styles.css';
 
-const CarsList = ({ cars }) => {
+const CarsList = ({ cars, favoriteCars }) => {
+    console.log(favoriteCars)
   const [showModal, setShowModal] = useState(false);
-  const favorite = useSelector(getFavorite);
+
   const dispatch = useDispatch();
 
   //   const car = useSelector(getSingleCar);
-  const favoriteStatus = favorite.includes(cars.id);
+//   const favoriteStatus = favorite.includes(card);
 
   const [visible, setVisible] = useState(8);
 
-  const incrementFavorite = () => {
-    dispatch(plusFavoriteList(cars.id));
-  };
-  const decrementFavorite = () => {
-    dispatch(minusFavoriteList(cars.id));
-  };
+  const favorite = useSelector(state => state.favorite);
+
+  const isExists = favorite.some(r => r.id === favoriteCars)
+
+//   const incrementFavorite = () => {
+//     dispatch(plusFavoriteList(card));
+//   };
+//   const decrementFavorite = () => {
+//     dispatch(minusFavoriteList(card));
+//   };
 
   const toggleModal = () => {
     setShowModal(true);
@@ -36,7 +42,7 @@ const CarsList = ({ cars }) => {
     setVisible(prevValue => prevValue + 8);
   };
 
-  const showLike = !favoriteStatus ? incrementFavorite : decrementFavorite;
+//   const showLike = !favoriteStatus ? incrementFavorite : decrementFavorite;
 
   return (
     <div className="container_list_map">
@@ -61,14 +67,15 @@ const CarsList = ({ cars }) => {
                 <div className="image">
                   <img className="image_car" src={img} alt="car" />
                   <button
-                    onClick={() => {
-                      dispatch(fetchCar(id));
-                      showLike();
-                    }}
+                    // onClick={() => {
+                    //   dispatch(fetchCar(id));
+                    //   showLike();
+                    // }}
                     //   onClick={!favoriteStatus ? incrementFavorite : decrementFavorite}
                     className="buttonHeart"
+                    onClick={() => {dispatch(actions.toggleFavorites(favoriteCars))}}
                   >
-                    {!favoriteStatus ? (
+                    {!isExists ? (
                       <HiOutlineHeart className="icon" />
                     ) : (
                       <HiOutlineHeart

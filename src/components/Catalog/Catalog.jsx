@@ -2,27 +2,24 @@ import './styles.css';
 import CarsList from '../CarsList/CarsList';
 import { useDispatch, useSelector } from 'react-redux';
 // import { useEffect } from 'react';
-import { fetchCars } from '../../Redux/carsFetch';
-import { useEffect } from 'react';
+
+
 import {
   getIsLoading,
   getError,
   getFilter,
-  getCars,
 } from '../../Redux/selectors';
 // import { Loader } from 'components/Loader/Loader';
 import { setStatusFilter } from '../../Redux/filtersSlice';
 
-function Catalog() {
+function Catalog({cars, favoriteCars}) {
   const dispatch = useDispatch();
   const isLoading = useSelector(getIsLoading);
   const error = useSelector(getError);
   const filter = useSelector(getFilter);
-  const cars = useSelector(getCars);
+  
 
-  useEffect(() => {
-    dispatch(fetchCars());
-  }, [dispatch]);
+  
 
   return (
     <div className="container">
@@ -76,7 +73,7 @@ function Catalog() {
           Search
         </button>
       </form>
-      <CarsList cars={cars} />
+      <CarsList cars={cars} favoriteCars={favoriteCars}/>
       {isLoading && <div>Loading...</div>}
       {error && <div>{error}</div>}
     </div>
