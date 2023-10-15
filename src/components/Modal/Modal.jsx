@@ -1,9 +1,9 @@
 import { createPortal } from 'react-dom';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getSingleCar } from '../../Redux/selectors';
 import { AiOutlineClose } from 'react-icons/ai';
-import { fetchCar, fetchCars } from '../../Redux/carsFetch';
+// import { fetchCar, fetchCars } from '../../Redux/carsFetch';
 
 import './styles.css';
 

@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import {BsFillBookmarkHeartFill} from 'react-icons/bs'
 import './styles.css';
-import { useFavorite } from 'components/hooks/useFavorive';
+// import { useFavorite } from 'components/hooks/useFavorive';
 import { getFavorite } from 'Redux/selectors';
 import { useSelector } from "react-redux";
 
