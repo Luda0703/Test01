@@ -1,25 +1,35 @@
 import './styles.css';
 import CarsList from '../CarsList/CarsList';
 import { useDispatch, useSelector } from 'react-redux';
-// import { useEffect } from 'react';
+import { useEffect } from 'react';
+import { fetchCars } from '../../Redux/carsFetch';
+import {
+    // getFavorite,
+    getCars,
+  } from '../../Redux/selectors';
 
 
 import {
   getIsLoading,
   getError,
-  getFilter,
+//   getFilter,
 } from '../../Redux/selectors';
 // import { Loader } from 'components/Loader/Loader';
-import { setStatusFilter } from '../../Redux/filtersSlice';
+// import { setStatusFilter } from '../../Redux/filtersSlice';
 
-function Catalog({cars, favoriteCars}) {
-  const dispatch = useDispatch();
-  const isLoading = useSelector(getIsLoading);
+function Catalog({id}) {
+const isLoading = useSelector(getIsLoading);
   const error = useSelector(getError);
-  const filter = useSelector(getFilter);
-  
+//   const filter = useSelector(getFilter);
 
-  
+  const cars = useSelector(getCars);
+//   const favoriteCars = useSelector(getFavorite)
+//   console.log(favoriteCars)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCars());
+  }, [dispatch]);
 
   return (
     <div className="container">
@@ -32,8 +42,8 @@ function Catalog({cars, favoriteCars}) {
             id="make"
             name="make"
             className="input_one"
-            value={filter}
-            onChange={e => dispatch(setStatusFilter(e.currentTarget.value))}
+            // value={filter}
+            // onChange={e => dispatch(setStatusFilter(e.currentTarget.value))}
           >
             {cars.map(({ make, id }) => (
               <option key={id}>{make}</option>
@@ -73,7 +83,11 @@ function Catalog({cars, favoriteCars}) {
           Search
         </button>
       </form>
-      <CarsList cars={cars} favoriteCars={favoriteCars}/>
+      <CarsList 
+      cars={cars} 
+    //   favoriteCars={favoriteCars}
+      id={id}
+      />
       {isLoading && <div>Loading...</div>}
       {error && <div>{error}</div>}
     </div>

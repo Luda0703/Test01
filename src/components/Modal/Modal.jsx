@@ -1,15 +1,20 @@
 import { createPortal } from 'react-dom';
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getSingleCar } from '../../Redux/selectors';
 import { AiOutlineClose } from 'react-icons/ai';
+import { fetchCar, fetchCars } from '../../Redux/carsFetch';
 
 import './styles.css';
 
 const modalRoot = document.querySelector('#modal-root');
 
-export default function Modal({ onClose }) {
+export default function Modal({ onClose, cars }) {
   const car = useSelector(getSingleCar);
+//   const dispatch = useDispatch();
+//  const carArray = (Array(car));
+//  console.log(carArray)
+
 
   useEffect(() => {
     const handleKeyDown = e => {
@@ -66,8 +71,8 @@ export default function Modal({ onClose }) {
                  <li className='accessoriesInfoList' key={index}>
                    {item}
                  </li>
-               ))} */}
-                {/* {car.functionalities.map((item, index) => (
+               ))}
+                {car.functionalities.map((item, index) => (
                  <li className='accessoriesInfoList' key={index}>
                    {item}
                  </li>
@@ -84,16 +89,16 @@ export default function Modal({ onClose }) {
                   </li>
                   {/* <li className='item'>
                   {car.rentalConditions.split('\n')[1]}
-                </li> */}
-                  {/* <li className='item'>
+                </li>
+                  <li className='item'>
                   {car.rentalConditions.split('\n')[2]}
-                </li> */}
+                </li>
                   <li className="item">
                     Mileage:{' '}
-                    {/* <span className='item_span'>
+                    <span className='item_span'>
                     {car.mileage.toLocaleString('en-US')}
-                  </span> */}
-                  </li>
+                  </span>
+                  </li> */}
                   <li className="item">
                     Price: <span className="item_span">{car.rentalPrice}</span>
                   </li>

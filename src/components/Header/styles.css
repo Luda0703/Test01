@@ -30,3 +30,27 @@ header {
   list-style: none;
   text-decoration: none;
 }
+
+.naw_header_span {
+    font-family: 'Poppins';
+  font-weight: 700;
+  font-size: 30px;
+  list-style: none;
+  text-decoration: none;
+  position: relative;
+}
+
+.naw_header_span span {
+    position: absolute;
+    background-color: #3470ff;
+    color: #fff;
+    font-size: 10px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    right: -8px;
+    top: -8px
+}
