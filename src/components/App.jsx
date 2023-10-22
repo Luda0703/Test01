@@ -3,6 +3,7 @@ import { lazy } from 'react';
 import Layout from './Layout/Layout';
 import './App.module.css';
 
+
 const HomePage = lazy(() => import('./Home/Home'));
 const CatalogPage = lazy(() => import('./Catalog/Catalog'));
 const FavoritesPage = lazy(() => import('./Favorites/Favorites'));

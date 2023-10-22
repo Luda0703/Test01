@@ -1,21 +1,12 @@
 import { createPortal } from 'react-dom';
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { getSingleCar } from '../../Redux/selectors';
 import { AiOutlineClose } from 'react-icons/ai';
-// import { fetchCar, fetchCars } from '../../Redux/carsFetch';
 
 import './styles.css';
 
 const modalRoot = document.querySelector('#modal-root');
 
-export default function Modal({ onClose, cars }) {
-  const car = useSelector(getSingleCar);
-//   const dispatch = useDispatch();
-//  const carArray = (Array(car));
-//  console.log(carArray)
-
-
+function Modal({ onClose, data }) {
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') {
@@ -41,42 +32,42 @@ export default function Modal({ onClose, cars }) {
           <button onClick={onClose} type="button" className="btnClose">
             <AiOutlineClose className="svgClose" />
           </button>
-          <img className="imgModal" src={car.img} alt={car.model} />
+          <img className="imgModal" src={data.img} alt={data.model} />
           <div className="containerTitleModal">
             <ul className="titleModal">
-              <li className="marka">{car.make}</li>
-              <li className="modal_m">{car.model}</li>
-              <li>{car.year}</li>
+              <li className="marka">{data.make}</li>
+              <li className="modal_m">{data.model}</li>
+              <li>{data.year}</li>
             </ul>
             <div className="infoModal">
               <div className="infoCarModal">
                 <ul className="containerInfoCar">
-                  {/* <li >{car.address.split(',')[1]}</li>
-                 <li >{car.address.split(',')[2]}</li> */}
-                  {/* <li className='infoCar'>{car.city}</li> */}
-                  <li className="infoCar">{car.address}</li>
-                  <li className="infoCar">id: {car.id}</li>
-                  <li className="infoCar">year: {car.year}</li>
-                  <li className="infoCar">type: {car.type}</li>
+                  <li>{data.address.split(',')[1]}</li>
+                  <li>{data.address.split(',')[2]}</li>
+                  <li className="infoCar">{data.city}</li>
+                  <li className="infoCar">{data.address}</li>
+                  <li className="infoCar">id: {data.id}</li>
+                  <li className="infoCar">year: {data.year}</li>
+                  <li className="infoCar">type: {data.type}</li>
                   <li className="infoCar">
-                    Fuel Consumption: {car.fuelConsumption}
+                    Fuel Consumption: {data.fuelConsumption}
                   </li>
-                  <li className="infoCar">Engine Size: {car.engineSize}</li>
+                  <li className="infoCar">Engine Size: {data.engineSize}</li>
                 </ul>
               </div>
-              <div className="description">{car.description}</div>
+              <div className="description">{data.description}</div>
               <p className="Accessories">Accessories and functionalities:</p>
               <ul className="AccessoriesInfo">
-                {/* {car.accessories.map((item, index) => (
-                 <li className='accessoriesInfoList' key={index}>
-                   {item}
-                 </li>
-               ))}
-                {car.functionalities.map((item, index) => (
-                 <li className='accessoriesInfoList' key={index}>
-                   {item}
-                 </li>
-               ))} */}
+                {data.accessories.map((item, index) => (
+                  <li className="accessoriesInfoList" key={index}>
+                    {item}
+                  </li>
+                ))}
+                {data.functionalities.map((item, index) => (
+                  <li className="accessoriesInfoList" key={index}>
+                    {item}
+                  </li>
+                ))}
               </ul>
               <div>
                 <p className="rentalCredition">Rental Conditions:</p>
@@ -84,23 +75,23 @@ export default function Modal({ onClose, cars }) {
                   <li className="item">
                     Minimum age:{' '}
                     <span className="item_span">
-                      {new Date().getFullYear() - car.year}
+                      {new Date().getFullYear() - data.year}
                     </span>
                   </li>
-                  {/* <li className='item'>
-                  {car.rentalConditions.split('\n')[1]}
-                </li>
-                  <li className='item'>
-                  {car.rentalConditions.split('\n')[2]}
-                </li>
+                  <li className="item">
+                    {data.rentalConditions.split('\n')[1]}
+                  </li>
+                  <li className="item">
+                    {data.rentalConditions.split('\n')[2]}
+                  </li>
                   <li className="item">
                     Mileage:{' '}
-                    <span className='item_span'>
-                    {car.mileage.toLocaleString('en-US')}
-                  </span>
-                  </li> */}
+                    <span className="item_span">
+                      {data.mileage.toLocaleString('en-US')}
+                    </span>
+                  </li>
                   <li className="item">
-                    Price: <span className="item_span">{car.rentalPrice}</span>
+                    Price: <span className="item_span">{data.rentalPrice}</span>
                   </li>
                 </ul>
               </div>
@@ -115,3 +106,5 @@ export default function Modal({ onClose, cars }) {
     modalRoot
   );
 }
+
+export default Modal;

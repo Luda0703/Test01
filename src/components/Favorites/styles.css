@@ -1,1 +1,20 @@
+.container {
+    padding-top: 50px;
+    padding-bottom: 150px;
+    padding-left: 115px;
+    padding-right: 115px;
+    width: 1440px;
+    margin: 0 auto;
+  }
 
+.container_cards {
+    width: 274px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 28px;
+    grid-row-gap: 50px;
+    padding: 0;
+    margin: 0;
+  }

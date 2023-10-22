@@ -5,11 +5,13 @@ export const getFilter = state => state.filter;
 export const getIsLoading = state => state.cars.isLoading;
 export const getError = state => state.cars.error;
 
-export const getVisibleCars = ({ cars: { items }, filter }) => {
+export const selectFilteredCatalogs = ({ cars: { items }, filter }) => {
   if (!filter) {
     return items;
   }
-  return items.filter(cars =>
-    cars.make.toLowerCase().includes(filter.toLowerCase() || cars.rentalPrice.toLowerCase().includes(filter.toLowerCase())
-  ));
+
+  return items.filter((item) =>
+    item.name.toLowerCase().includes(filter.toLowerCase())
+  );
 };
+

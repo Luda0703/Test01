@@ -1,67 +1,36 @@
-import Catalog from "components/Catalog/Catalog";
-// import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-// import { fetchCar, fetchCars } from '../../Redux/carsFetch';
-// import { getFavorite } from "Redux/selectors";
-// import { getSingleCar } from '../../Redux/selectors';
+import { useSelector } from 'react-redux';
+import { getCars } from '../../Redux/selectors';
+import CarsList from 'components/CarsList/CarsList';
 
 function Favorites() {
-    // const [card, setCard] = useState([])
-    // const car = useSelector(getSingleCar);
-    // const cars = useSelector(getCars)
-    // const favorite = useSelector(getFavorite);
-    // const favoriteCars = cars.filter((car) => favorite.includes(car.id));
-    const favorite = useSelector((state) => state.favorite)
-    // // console.log(carsFavorite)
-    // const cardsId = (cars, favorite) =>
-    // cars.filter((car) =>
-    // favorite.some((favoriteCar) => car.id === favoriteCar.id)
-    //  );
-    // const dispatch = useDispatch();
+  const cars = useSelector(getCars);
 
-    // useEffect(() => {
-    //     setCard({favorite})
-    // }, [])
-    
-    // console.log(favorite)
+  const favorite = useSelector(state => state.favorite);
 
-    // useEffect(() => {
-        
-    //     const arr = Object.entries(favorite)
-    
-    //     if(arr.length) {
-    //         const res = arr.map(item => {
-    //             return item.id === favorite
-    //         })
-    //         console.log('res', res)
+  const cardsId = (cards, favorite) =>
+    cards.filter(c => favorite.some(f => c.id === f.id));
 
-    //         setCard(res)
-    //     }
-
-    // }, [favorite])
-
-return (
-    
-    <>
-    {/* <Catalog favoriteCars={favoriteCars}/> */}
-    {/* {favorite.length > 0 ? (
-          cardsId(cars, favorite).map((car) => (
-            <Catalog key={car.id} {...car} />
-            ))
-            ) : (
-                <h2> No cards </h2>
-            )} */}
-    {favorite.length 
-    ? <Catalog />
-    : <h2 style={{display: 'flex', justifyContent: 'center'}}> No cards </h2> 
-    }
-    
-    </>
-)
-    
-   
+  return (
+    <div className="container">
+      <div className="container_cards">
+        {favorite.length > 0 ? (
+          cardsId(cars, favorite).map(c => <CarsList key={c.id} {...c} />)
+        ) : (
+          <h2
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              fontWeight: '700',
+              fontSize: '36px',
+            }}
+          >
+            {' '}
+            No cards{' '}
+          </h2>
+        )}
+      </div>
+    </div>
+  );
 }
 
 export default Favorites;
-
-

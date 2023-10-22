@@ -4,26 +4,20 @@ export const favoriteSlice = createSlice({
   name: 'favorite',
   initialState: [],
   reducers: {
-  
-    // toggleFavorites: (state, {payload: favoriteCars}) => {
-    //     const isExists = state.some(r => r.id === favoriteCars.id)
+    toggleFavorites: (state, action) => {
+      const { id } = action.payload;
+      const isExists = state.some(c => c.id === id);
+      console.log(id);
 
-    //     if(isExists) {
-    //         const index = state.findIndex(r => r.id !== favoriteCars.id)
-    //      if (index !== -1) 
-    //         state.splice(index, 1)
-    //     }
-    //     else {
-    //         state.push(favoriteCars)
-    //     }
-    // }
-    plusFavoriteList(state, action) {
-      return (state = [...state, action.payload]);
-    },
-    minusFavoriteList(state, action) {
-      return (state = state.filter(user => user !== action.payload));
+      if (isExists) {
+        const index = state.findIndex(c => c.id === id);
+        if (index !== -1) state.splice(index, 1);
+      } else {
+        state.push(action.payload);
+      }
     },
   },
 });
-// export const { actions, reducer } = favoriteSlice;
-export const { plusFavoriteList, minusFavoriteList } = favoriteSlice.actions;
+
+export const { toggleFavorites, removeFromFavorites } = favoriteSlice.actions;
+export default favoriteSlice.reducer;

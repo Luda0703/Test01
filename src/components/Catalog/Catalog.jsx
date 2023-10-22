@@ -1,30 +1,18 @@
 import './styles.css';
-import CarsList from '../CarsList/CarsList';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchCars } from '../../Redux/carsFetch';
-import {
-    // getFavorite,
-    getCars,
-  } from '../../Redux/selectors';
+import { getCars } from '../../Redux/selectors';
 
+import { getIsLoading, getError } from '../../Redux/selectors';
+import { Card } from 'components/Card/Card';
 
-import {
-  getIsLoading,
-  getError,
-//   getFilter,
-} from '../../Redux/selectors';
-// import { Loader } from 'components/Loader/Loader';
-// import { setStatusFilter } from '../../Redux/filtersSlice';
-
-function Catalog({id}) {
-const isLoading = useSelector(getIsLoading);
+function Catalog() {
+  const isLoading = useSelector(getIsLoading);
   const error = useSelector(getError);
-//   const filter = useSelector(getFilter);
 
   const cars = useSelector(getCars);
-//   const favoriteCars = useSelector(getFavorite)
-//   console.log(favoriteCars)
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -38,13 +26,7 @@ const isLoading = useSelector(getIsLoading);
           <label htmlFor="make" className="lb_input">
             Car brand{' '}
           </label>
-          <select
-            id="make"
-            name="make"
-            className="input_one"
-            // value={filter}
-            // onChange={e => dispatch(setStatusFilter(e.currentTarget.value))}
-          >
+          <select id="make" name="make" className="input_one">
             {cars.map(({ make, id }) => (
               <option key={id}>{make}</option>
             ))}
@@ -83,11 +65,7 @@ const isLoading = useSelector(getIsLoading);
           Search
         </button>
       </form>
-      <CarsList 
-      cars={cars} 
-    //   favoriteCars={favoriteCars}
-      id={id}
-      />
+      <Card cars={cars} />
       {isLoading && <div>Loading...</div>}
       {error && <div>{error}</div>}
     </div>
