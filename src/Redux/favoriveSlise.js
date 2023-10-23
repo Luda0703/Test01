@@ -7,7 +7,6 @@ export const favoriteSlice = createSlice({
     toggleFavorites: (state, action) => {
       const { id } = action.payload;
       const isExists = state.some(c => c.id === id);
-      console.log(id);
 
       if (isExists) {
         const index = state.findIndex(c => c.id === id);

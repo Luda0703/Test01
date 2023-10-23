@@ -1,7 +1,7 @@
 import { createPortal } from 'react-dom';
 import { useEffect } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
-
+import PropTypes from 'prop-types';
 import './styles.css';
 
 const modalRoot = document.querySelector('#modal-root');
@@ -106,5 +106,10 @@ function Modal({ onClose, data }) {
     modalRoot
   );
 }
+
+Modal.propTypes = {
+    onClose: PropTypes.func.isRequired,
+  data: PropTypes.object
+};
 
 export default Modal;

@@ -5,6 +5,7 @@ import { HiOutlineHeart } from 'react-icons/hi';
 import { getFavorite } from '../../Redux/selectors';
 import { toggleFavorites } from 'Redux/favoriveSlise';
 import Modal from '../Modal/Modal';
+import PropTypes from 'prop-types';
 import './styles.css';
 
 const CarsList = ({
@@ -96,30 +97,52 @@ const CarsList = ({
         </li>
       </ul>
 
-      {showModal && <Modal 
-      onClose={closeModal} 
-      data={{
-        make,
-        year,
-        rentalPrice,
-        address,
-        rentalCompany,
-        type,
-        accessories,
-        mileage,
-        model,
-        id,
-        fuelConsumption,
-        engineSize,
-        description,
-        functionalities,
-        img,
-        rentalConditions,
-    city,
-      }}
-      />}
+      {showModal && (
+        <Modal
+          onClose={closeModal}
+          data={{
+            make,
+            year,
+            rentalPrice,
+            address,
+            rentalCompany,
+            type,
+            accessories,
+            mileage,
+            model,
+            id,
+            fuelConsumption,
+            engineSize,
+            description,
+            functionalities,
+            img,
+            rentalConditions,
+            city,
+          }}
+        />
+      )}
     </div>
   );
+};
+
+CarsList.propTypes = {
+  id: PropTypes.string.isRequired,
+  model: PropTypes.string.isRequired,
+  make: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
+  year: PropTypes.number.isRequired,
+  address: PropTypes.string.isRequired,
+  rentalPrice: PropTypes.string.isRequired,
+  rentalCompany: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  functionalities: PropTypes.array.isRequired,
+  fuelConsumption: PropTypes.string.isRequired,
+  engineSize: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  accessories: PropTypes.array.isRequired,
+  rentalConditions: PropTypes.string.isRequired,
+  mileage: PropTypes.number.isRequired,
+  city: PropTypes.string,
 };
 
 export default CarsList;

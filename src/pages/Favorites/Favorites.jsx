@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { getCars } from '../../Redux/selectors';
 import CarsList from 'components/CarsList/CarsList';
+import './styles.css';
 
 function Favorites() {
   const cars = useSelector(getCars);
@@ -11,22 +12,17 @@ function Favorites() {
     cards.filter(c => favorite.some(f => c.id === f.id));
 
   return (
-    <div className="container">
-      <div className="container_cards">
+    <div className='container'>
+      <div className='container_card'>
         {favorite.length > 0 ? (
           cardsId(cars, favorite).map(c => <CarsList key={c.id} {...c} />)
         ) : (
-          <h2
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              fontWeight: '700',
-              fontSize: '36px',
-            }}
-          >
+          <div className='text_cont'>
+            <h2 className='text'>
             {' '}
             No cards{' '}
           </h2>
+          </div>
         )}
       </div>
     </div>
